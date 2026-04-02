@@ -2,9 +2,7 @@
 using System.IO;
 
 namespace TextFileProcessor {
-
   public class TextFileProcessorApp {
-
     private SpellingCorrector _spellingCorrector;
     private PhoneNumberCorrector _phoneCorrector;
 
@@ -18,19 +16,7 @@ namespace TextFileProcessor {
 
       while (isRunning) {
         Console.ForegroundColor = ConsoleColor.Yellow;
-        string menu = "\n┌─────────────────────────────────────────┐\n" +
-                     "│            PROCESSOR MENU               │\n" +
-                     "├─────────────────────────────────────────┤\n" +
-                     "│  1. Process single file                 │\n" +
-                     "│  2. Process entire directory            │\n" +
-                     "│  3. Show error dictionary               │\n" +
-                     "│  4. Add custom error word               │\n" +
-                     "│  5. Test correction on sample text      │\n" +
-                     "│  6. Find phone numbers in text          │\n" +
-                     "│  7. Exit                                │\n" +
-                     "└─────────────────────────────────────────┘\n" +
-                     "Your choice: ";
-        Console.Write(menu);
+        Console.Write("\n┌─────────────────────────────────────────┐\n│            PROCESSOR MENU               │\n├─────────────────────────────────────────┤\n│  1. Process single file                 │\n│  2. Process entire directory            │\n│  3. Show error dictionary               │\n│  4. Add custom error word               │\n│  5. Test correction on sample text      │\n│  6. Find phone numbers in text          │\n│  7. Exit                                │\n└─────────────────────────────────────────┘\nYour choice: ");
         Console.ResetColor();
 
         string choice = Console.ReadLine();
@@ -141,8 +127,7 @@ namespace TextFileProcessor {
     }
 
     private void TestCorrection() {
-      Console.WriteLine("\n--- TEST CORRECTION ---");
-      Console.WriteLine("Enter a sample text to test correction:");
+      Console.WriteLine("\n--- TEST CORRECTION ---\nEnter a sample text to test correction:");
       Console.Write("> ");
       string sampleText = Console.ReadLine();
 
@@ -159,7 +144,7 @@ namespace TextFileProcessor {
       Console.WriteLine(sampleText);
 
       string corrected = _spellingCorrector.TestCorrection(sampleText);
-      
+
       Console.ForegroundColor = ConsoleColor.Green;
       Console.WriteLine("\n--- CORRECTED TEXT ---");
       Console.ResetColor();
@@ -167,8 +152,7 @@ namespace TextFileProcessor {
     }
 
     private void FindPhoneNumbers() {
-      Console.WriteLine("\n--- FIND PHONE NUMBERS ---");
-      Console.WriteLine("Enter text to search for phone numbers:");
+      Console.WriteLine("\n--- FIND PHONE NUMBERS ---\nEnter text to search for phone numbers:");
       Console.Write("> ");
       string sampleText = Console.ReadLine();
 
